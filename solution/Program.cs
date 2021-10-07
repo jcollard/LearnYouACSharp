@@ -12,7 +12,8 @@
         /// </summary>
         public static void Main()
         {
-            GuessingGame.GuessingGame.Play(0, 100);
+            // GuessingGame.Play(0, 100);
+            RockPaperScissors.Play(5);
         }
     }
 }

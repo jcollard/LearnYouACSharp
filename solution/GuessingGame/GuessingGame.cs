@@ -1,4 +1,4 @@
-namespace LearnYouACSharp.GuessingGame
+namespace LearnYouACSharp
 {
     using System;
 
