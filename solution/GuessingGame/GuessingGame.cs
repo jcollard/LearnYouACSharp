@@ -13,16 +13,25 @@ namespace LearnYouACSharp.GuessingGame
         /// </summary>
         /// <param name="minNumber">The minimum value that the game may generate.</param>
         /// <param name="maxNumber">The maximum value that the game may generate.</param>
-        public static void Run(int minNumber, int maxNumber)
+        public static void Play(int minNumber, int maxNumber)
         {
+            // Declare local variables
             Random randomGenerator;
-            int incorrectGuesses, randomNumber, playerGuess;
+            int incorrectGuesses; // Tracks the number of incorrect guesses the player has made.
+            int randomNumber; // Keeps track of the number the player is trying to guess.
+            int playerGuess; // The most recent guess that the player has made.
+
+            // Initialize local variables
             randomGenerator = new Random();
             incorrectGuesses = 0;
             randomNumber = randomGenerator.Next(minNumber, maxNumber + 1);
+
+            // Start Game
             Console.WriteLine("Guessing Game:");
             Console.WriteLine($"I'm thinking of a number between {minNumber} and {maxNumber}.");
             playerGuess = GetGuess(minNumber, maxNumber);
+
+            // Loop until the player guesses the correct number.
             while (playerGuess != randomNumber)
             {
                 incorrectGuesses++;
@@ -38,6 +47,7 @@ namespace LearnYouACSharp.GuessingGame
                 playerGuess = GetGuess(minNumber, maxNumber);
             }
 
+            // Display the result of the game
             Console.WriteLine("You guessed my number!");
             if (incorrectGuesses > 0)
             {
@@ -57,8 +67,14 @@ namespace LearnYouACSharp.GuessingGame
         /// <returns>The players guess.</returns>
         public static int GetGuess(int lowest, int highest)
         {
+            // Declare local variables
+            int guess; // Stores the players guess
+
+            // Get the users guess.
             Console.WriteLine($"Enter a guess between {lowest} and {highest}: ");
-            int guess = int.Parse(Console.ReadLine());
+            guess = int.Parse(Console.ReadLine());
+
+            // If the guess is out of bounds, make the player guess again.
             if (guess < lowest || guess > highest)
             {
                 Console.WriteLine("Invalid guess!");

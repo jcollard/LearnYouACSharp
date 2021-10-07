@@ -12,7 +12,7 @@
         /// </summary>
         public static void Main()
         {
-            GuessingGame.GuessingGame.Run(0, 100);
+            GuessingGame.GuessingGame.Play(0, 100);
         }
     }
 }
