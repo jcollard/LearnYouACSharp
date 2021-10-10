@@ -20,7 +20,7 @@
             // BadderLibs.Play("files/Dragon.bad");
             // BaddestLibs.Play("files");
 
-            BadLibBuilder b = BadLibBuilder.FromStringWhile("The {Enter a color} Dragon is the {Enter a superlative} Dragon of all.");
+            BadLibBuilder b = new BadLibLoaderTestable().Load("The {Enter a color} Dragon is the {Enter a superlative} Dragon of all.");
             b.Play();
 
             // BadLibBuilder b = new BadLibBuilder();
