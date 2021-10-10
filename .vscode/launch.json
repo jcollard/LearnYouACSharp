@@ -13,8 +13,9 @@
             "program": "${workspaceFolder}/bin/Debug/net5.0/LearnYouACSharp.dll",
             "args": [],
             "cwd": "${workspaceFolder}",
-            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "integratedTerminal",
+            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console,
+            "console": "externalTerminal",
+            //"console": "integratedTerminal",
             "stopAtEntry": false
         },
         {

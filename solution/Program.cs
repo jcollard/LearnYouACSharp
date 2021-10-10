@@ -13,7 +13,8 @@
         public static void Main()
         {
             // GuessingGame.Play(0, 100);
-            RockPaperScissors.Play(5);
+            // RockPaperScissors.Play(5);
+            BadLibs.Play();
         }
     }
 }
