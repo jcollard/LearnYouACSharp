@@ -17,8 +17,11 @@
             // RockPaperScissors.Play(5);
             // BadLibs.Play();
             // SuperHeroNameGenerator.GenerateName();
-            string path = Directory.GetCurrentDirectory();
-            Console.WriteLine($"{path}");
+            // BadderLibs.Play("files/Dragon.bad");
+            BaddestLibs.Play("files");
+
+            // string path = Directory.GetCurrentDirectory();
+            // Console.WriteLine($"{path}");
         }
     }
 }

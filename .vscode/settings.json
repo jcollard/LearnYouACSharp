@@ -1,3 +1,5 @@
 {
-    "omnisharp.enableRoslynAnalyzers": true
+    "omnisharp.enableRoslynAnalyzers": true,
+    // Uncomment the line below on Windows
+    "terminal.integrated.automationShell.windows": "PowerShell",
 }
