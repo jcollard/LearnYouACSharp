@@ -14,7 +14,8 @@
         {
             // GuessingGame.Play(0, 100);
             // RockPaperScissors.Play(5);
-            BadLibs.Play();
+            // BadLibs.Play();
+            SuperHeroNameGenerator.GenerateName();
         }
     }
 }
