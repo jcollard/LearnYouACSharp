@@ -5,6 +5,7 @@
         <Rule Id="SA0001"  Action="None"    />          <!-- XML comment analysis disabled -->
         <Rule Id="SA0002"  Action="Warning" />          <!-- Invalid settings file -->
         <Rule Id="IDE0090" Action="None"    />          <!-- Simplify Constructor -->
+        <Rule Id="IDE0057" Action="None"    />          <!-- Simplify Substring -->
         <Rule Id="CA1822"  Action="None"    />          <!-- Member Method's should be static if possible -->
     </Rules>
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers.SpacingRules">
