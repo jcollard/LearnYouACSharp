@@ -1,6 +1,7 @@
 namespace LearnYouACSharp
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// A bad game about words.
@@ -23,6 +24,15 @@ namespace LearnYouACSharp
             string adjective1;
             string adjective2;
             string adjective3;
+
+            // List<string> textComponents = new List<string>();
+
+            // textComponents.Add("A blaha blah");
+            // textComponents.Add(GetInput("Enter a color: "));
+
+            // foreach(string compononent in textComponents){
+
+            // }
 
             Console.WriteLine("Enter a color: ");
             color = Console.ReadLine();

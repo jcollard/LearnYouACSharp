@@ -29,30 +29,35 @@ namespace LearnYouACSharp
             string result = string.Empty;
             foreach (IBadLibComponent component in this.components)
             {
-                result += component.GetString();
+                result += component.GetPlayString();
             }
 
             Console.Clear();
             Console.WriteLine(result);
         }
 
-        public void Save(string path)
+        public override string ToString()
         {
             string result = string.Empty;
             foreach (IBadLibComponent component in this.components)
             {
-                result += component.Save();
+                result += component.GetSaveString();
             }
 
-            File.WriteAllText(path, result);
+            return result;
+        }
+
+        public void Save(string path)
+        {
+            File.WriteAllText(path, this.ToString());
         }
     }
 
     public interface IBadLibComponent
     {
-        public string GetString();
+        public string GetPlayString();
 
-        public string Save();
+        public string GetSaveString();
     }
 
     public class BadLibPhrase : IBadLibComponent
@@ -64,12 +69,12 @@ namespace LearnYouACSharp
             this.phrase = phrase;
         }
 
-        public string GetString()
+        public string GetPlayString()
         {
             return this.phrase;
         }
 
-        public string Save()
+        public string GetSaveString()
         {
             return this.phrase;
         }
@@ -84,14 +89,14 @@ namespace LearnYouACSharp
             this.prompt = prompt;
         }
 
-        public string GetString()
+        public string GetPlayString()
         {
             Console.Write($"{prompt}: ");
             Console.Out.Flush();
             return Console.ReadLine();
         }
 
-        public string Save()
+        public string GetSaveString()
         {
             return "{" + this.prompt + "}";
         }
@@ -173,6 +178,47 @@ namespace LearnYouACSharp
 
     }
 
+    public class BadLibLoaderRecursive : IBadLibLoader
+    {
+
+        public BadLibBuilder FromString(string toLoad)
+        {
+            return this.FromString(new BadLibBuilder(), toLoad);
+        }
+
+        public BadLibBuilder FromString(BadLibBuilder builder, string toLoad)
+        {
+            if (toLoad.Length == 0)
+            {
+                return builder;
+            }
+            else if (toLoad.StartsWith('{'))
+            {
+                int endInput = toLoad.IndexOf("}");
+                string prompt = toLoad.Substring(1, endInput - 1);
+                toLoad = toLoad.Substring(endInput + 1);
+                builder.AddComponent(new BadLibInput(prompt));
+                return this.FromString(builder, toLoad);
+            }
+            else
+            {
+                int endOfPhrase = toLoad.IndexOf('{');
+                string phrase;
+                if (endOfPhrase == -1)
+                {
+                    builder.AddComponent(new BadLibPhrase(toLoad));
+                    return builder;
+                }
+
+                phrase = toLoad.Substring(0, endOfPhrase);
+                toLoad = toLoad.Substring(endOfPhrase);
+                builder.AddComponent(new BadLibPhrase(phrase));
+                return this.FromString(builder, toLoad);
+            }
+        }
+
+    }
+
     public class BadLibLoaderTestable : IBadLibLoader
     {
 
@@ -231,12 +277,12 @@ namespace LearnYouACSharp
 
         public bool IsPhraseNext(string badLibText)
         {
-            return !this.badLibText.StartsWith('{');
+            return !badLibText.StartsWith('{');
         }
 
         public bool IsInputNext(string badLibText)
         {
-            return this.badLibText.StartsWith('{');
+            return badLibText.StartsWith('{');
         }
     }
 }
