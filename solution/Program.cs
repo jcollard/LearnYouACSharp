@@ -1,6 +1,7 @@
 ﻿namespace LearnYouACSharp
 {
     using System;
+    using System.IO;
 
     /// <summary>
     /// This class contains the entry point for this project.
@@ -15,7 +16,9 @@
             // GuessingGame.Play(0, 100);
             // RockPaperScissors.Play(5);
             // BadLibs.Play();
-            SuperHeroNameGenerator.GenerateName();
+            // SuperHeroNameGenerator.GenerateName();
+            string path = Directory.GetCurrentDirectory();
+            Console.WriteLine($"{path}");
         }
     }
 }
