@@ -5,7 +5,7 @@ namespace LearnYouACSharp
     /// <summary>
     /// A number Guessing Game.
     /// </summary>
-    public class GuessingGame
+    public class NumberGuessingGame
     {
         /// <summary>
         /// Executes a Guessing Game in which a player must guess a randomly

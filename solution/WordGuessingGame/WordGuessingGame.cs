@@ -5,7 +5,6 @@ namespace LearnYouACSharp
 
     public class WordGuessingGame
     {
-
         private string wordToGuess;
         private List<char> lettersGuessed;
         private int incorrectGuesses;
