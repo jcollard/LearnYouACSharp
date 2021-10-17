@@ -1,6 +1,7 @@
 namespace LearnYouACSharp
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// A number Guessing Game.
